@@ -86,10 +86,10 @@ http://127.0.0.1:5000
 # 🖼️ Screenshots  
 
 ### 🔹 Home Page  
-![Home Page](./image1.png)
+![Home Page](image1.png)
 
 ### 🔹 Live Capture & Detection  
-![Dashboard](./dashboard.png)
+![Dashboard](dashboard.png)
 
 ---
 
