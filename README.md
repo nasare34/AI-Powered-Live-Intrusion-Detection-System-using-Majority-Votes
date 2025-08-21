@@ -83,49 +83,55 @@ python app.py
 http://127.0.0.1:5000
 
 
-🖼️ Screenshots
-🔹 Home Page
+# 🖼️ Screenshots  
 
-🔹 Live Capture & Detection
+### 🔹 Home Page  
+![Home Page](docs/image1.png)  
 
-📊 Models & Methodology
+### 🔹 Live Capture & Detection  
+![Dashboard](docs/dashboard.png)  
 
-Classifiers Used:
+---
 
-Bernoulli Naïve Bayes
+# 📊 Models & Methodology  
 
-Decision Tree Classifier
+### Classifiers Used:
+- **Bernoulli Naïve Bayes**  
+- **Decision Tree Classifier**  
+- **K-Nearest Neighbors (KNN)**  
+- **Ensemble Method: Majority Voting**  
 
-K-Nearest Neighbors (KNN)
+### Preprocessing:
+- Feature Scaling  
+- Label Encoding  
 
-Ensemble Method: Majority Voting
+✅ The **ensemble ensures more robust predictions** by combining the strengths of individual models.  
 
-Preprocessing: Feature Scaling + Label Encoding
+---
 
-The ensemble ensures more robust predictions by combining the strengths of individual models.
+# 🔒 Security Notice  
 
-🔒 Security Notice
+⚠️ This project is for **research and educational purposes only.**  
+It is not intended as a **production-grade intrusion detection system.**  
+Please test it in a **safe, controlled network environment.**  
 
-This project is for research and educational purposes only.
-It is not intended as a production-grade intrusion detection system.
-Please test it in a safe, controlled network environment.
+---
 
-🤝 Contributing
+# 🤝 Contributing  
 
-Contributions are welcome!
-If you’d like to improve the project:
+Contributions are welcome! 🎉  
+If you’d like to improve the project:  
 
-Fork the repo
+1. **Fork the repo**  
+2. **Create a new branch** (`feature-new`)  
+3. **Commit your changes**  
+4. **Push and submit a PR**  
 
-Create a new branch (feature-new)
+---
 
-Commit your changes
+# 📜 License  
 
-Push and submit a PR
-
-📜 License
-
-MIT License © 2025 Bright Ofori and Akwasi Asare
+MIT License © 2025 **Bright Ofori and Akwasi Asare**  
 
 
 
