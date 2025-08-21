@@ -8,6 +8,7 @@
 An **AI-driven Intrusion Detection System (IDS)** that monitors live network traffic and detects potential cyber-attacks in real time.  
 This system leverages multiple machine learning classifiers and applies a **majority voting mechanism** to improve detection accuracy and reduce false alarms.  
 
+![Python](image1.png)
 ---
 
 ## 🚀 Features
