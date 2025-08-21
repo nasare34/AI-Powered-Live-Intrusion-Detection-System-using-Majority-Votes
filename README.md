@@ -1,15 +1,20 @@
 # 🛡️ AI-Powered Live Intrusion Detection System (IDS) using Majority Votes
 
-This project is an **AI-driven Intrusion Detection System (IDS)** that monitors live network traffic and detects potential cyber-attacks in real time.  
-It leverages multiple machine learning classifiers and applies a **majority voting mechanism** to improve detection accuracy and reduce false alarms.  
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web%20App-lightgrey?logo=flask)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Research--Prototype-orange)
+
+An **AI-driven Intrusion Detection System (IDS)** that monitors live network traffic and detects potential cyber-attacks in real time.  
+This system leverages multiple machine learning classifiers and applies a **majority voting mechanism** to improve detection accuracy and reduce false alarms.  
 
 ---
 
 ## 🚀 Features
 
-- 🔍 **Live Network Packet Capture** using Scapy/Socket  
+- 🔍 **Live Network Packet Capture** (Scapy/Socket)  
 - 🤖 **Multiple Machine Learning Models** (Naïve Bayes, Decision Tree, KNN, etc.)  
-- 🗳️ **Majority Voting Ensemble** for final classification  
+- 🗳️ **Majority Voting Ensemble** for robust classification  
 - 📊 **Interactive Web Interface** powered by Flask  
 - 📂 Upload network traffic files (e.g., PCAP) for offline analysis  
 - 🖥️ Visualization of detection results in the browser  
@@ -19,22 +24,29 @@ It leverages multiple machine learning classifiers and applies a **majority voti
 
 ## 🏗️ Project Structure
 
-├── app.py # Flask application entry point
-├── requirements.txt # Python dependencies
-├── templates/ # HTML templates (Flask Jinja2)
-│ ├── base.html
-│ ├── index.html
-│ ├── live_capture.html
-│ ├── results.html
-│ └── howto.html
-├── models/ # Saved ML models (PKL files)
-│ ├── BNB_Classifier.pkl
-│ ├── DTC_Classifier.pkl
-│ ├── KNN_Classifier.pkl
-│ ├── Features.pkl
-│ ├── StandardScaler.pkl
-│ └── LabelEncoder_class.pkl
-└── uploads/ # Uploaded files (PDF, DOCX, PCAP, etc.)
+```bash
+AI-Powered-Live-Intrusion-Detection-System-using-Majority-Votes/
+│
+├── app.py                 # Flask application entry point
+├── requirements.txt       # Python dependencies
+│
+├── templates/             # HTML templates (Flask Jinja2)
+│   ├── base.html
+│   ├── index.html
+│   ├── live_capture.html
+│   ├── results.html
+│   └── howto.html
+│
+├── models/                # Saved ML models (PKL files)
+│   ├── BNB_Classifier.pkl
+│   ├── DTC_Classifier.pkl
+│   ├── KNN_Classifier.pkl
+│   ├── Features.pkl
+│   ├── StandardScaler.pkl
+│   └── LabelEncoder_class.pkl
+│
+└── uploads/               # Uploaded files (PCAP, PDF, DOCX, etc.)
+
 
 
 ---
