@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Network Intrusion Detection System{% endblock %}
+
+{% block content %}
+<!-- Navigation Bar -->
+<nav class="bg-white rounded-xl shadow-2xl mb-8 p-4 flex justify-between items-center flex-wrap gap-4">
+    <div class="flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity mr-1 text-blue-600"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <span class="text-2xl font-extrabold text-gray-900">Network Intrusion Detection System</span>
+    </div>
+    <div class="flex space-x-6">
+        <a href="{{ url_for('index') }}" class="text-blue-600 font-semibold text-lg transition-colors duration-200">Home</a>
+        <a href="{{ url_for('live_capture_dashboard') }}" class="text-gray-600 hover:text-blue-600 font-semibold text-lg transition-colors duration-200">Dashboard</a>
+        <a href="{{ url_for('howto') }}" class="text-gray-600 hover:text-blue-600 font-semibold text-lg transition-colors duration-200">How to use the app</a>
+    </div>
+</nav>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Manual Packet Input Card -->
+    <div class="bg-white rounded-lg shadow-xl p-8 flex flex-col items-center">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Manual Prediction</h2>
+        <p class="text-gray-600 mb-6 text-center">Enter a packet's features manually to get a prediction.</p>
+        <form action="{{ url_for('predict_input') }}" method="POST" class="w-full">
+            <div class="mb-4">
+                <label for="packet_input" class="block text-gray-700 font-semibold mb-2">Packet Data (comma-separated)</label>
+                <textarea id="packet_input" name="packet_input" rows="6" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200" placeholder="e.g., 0,264,1248,...,tcp,http,SF"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                Predict
+            </button>
+        </form>
+    </div>
+
+    <!-- File Upload Card -->
+    <div class="bg-white rounded-lg shadow-xl p-8 flex flex-col items-center">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Upload a File</h2>
+        <p class="text-gray-600 mb-6 text-center">Upload a PDF, DOCX, or CSV file containing packet data for prediction.</p>
+        <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data" class="w-full">
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-2" for="file_upload">Choose File</label>
+                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:border-gray-400 transition-colors duration-200">
+                    <div class="space-y-1 text-center">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <div class="flex text-sm text-gray-600">
+                            <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                <span>Upload a file</span>
+                                <input id="file-upload" name="file" type="file" class="sr-only" accept=".pdf,.docx,.csv">
+                            </label>
+                            <p class="pl-1">or drag and drop</p>
+                        </div>
+                        <p class="text-xs text-gray-500">PDF, DOCX, or CSV up to 10MB</p>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="w-full bg-green-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                Analyze Document
+            </button>
+        </form>
+    </div>
+
+    <!-- Live Packet Capture Card -->
+    <div class="bg-white rounded-lg shadow-xl p-8 flex flex-col items-center">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Live Packet Capture</h2>
+        <p class="text-gray-600 mb-6 text-center">Sniff and analyze live packets from your network interface.</p>
+        <form action="{{ url_for('live_capture_dashboard') }}" method="GET" class="w-full">
+            <div class="mb-4">
+                <label for="interface" class="block text-gray-700 font-semibold mb-2">Network Interface</label>
+                <input type="text" id="interface" name="interface" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200" placeholder="e.g., eth0, wlan0" value="eth0">
+            </div>
+            <button type="submit" class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                Go to Live Dashboard
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

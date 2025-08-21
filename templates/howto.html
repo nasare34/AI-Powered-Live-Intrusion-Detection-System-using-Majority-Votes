@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}How to Use{% endblock %}
+
+{% block content %}
+<div class="bg-white rounded-xl shadow-2xl p-8">
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-6">How to Use the Network Inspector</h1>
+    <p class="text-gray-600 mb-8">This application provides three different methods for inspecting network packets to detect malicious activity.</p>
+    
+    <div class="space-y-12">
+        <!-- Manual Input Section -->
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 flex items-center mb-4">
+                <i data-feather="fingerprint" class="mr-3 text-indigo-600"></i>Manual Packet Analysis
+            </h2>
+            <div class="text-gray-700 space-y-4">
+                <p>This method is for testing a single, custom packet. You can provide the packet's features as a comma-separated list in the text area. The features must be in the correct order as expected by the model.</p>
+                <p><strong>Steps:</strong></p>
+                <ol class="list-decimal list-inside pl-4 space-y-2">
+                    <li>Navigate to the Dashboard.</li>
+                    <li>In the "Manual Packet Analysis" section, enter the packet features (e.g., `0,491,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,255,255,1,0,0,0,0,0,0,0,tcp,http,SF`).</li>
+                    <li>(Optional) Check the "Simulate Encrypted Packet" box if you want to use the Isolation Forest model for anomaly detection instead of the K-Nearest Neighbors classifier.</li>
+                    <li>Click "Predict Manually".</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- File Upload Section -->
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 flex items-center mb-4">
+                <i data-feather="file-up" class="mr-3 text-green-600"></i>File Upload Analysis
+            </h2>
+            <div class="text-gray-700 space-y-4">
+                <p>Use this option to upload a file containing multiple packets. The application will select a random packet from the file and perform a prediction on it.</p>
+                <p><strong>Steps:</strong></p>
+                <ol class="list-decimal list-inside pl-4 space-y-2">
+                    <li>Navigate to the Dashboard.</li>
+                    <li>In the "File Upload Analysis" section, click "Choose a file" to select a CSV, PDF, or DOCX file.</li>
+                    <li>(Optional) Check the "Simulate Encrypted Packet" box if you want to use the Isolation Forest model for anomaly detection.</li>
+                    <li>Click "Upload & Predict".</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Live Capture Section -->
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 flex items-center mb-4">
+                <i data-feather="antenna" class="mr-3 text-blue-600"></i>Live Packet Capture
+            </h2>
+            <div class="text-gray-700 space-y-4">
+                <p>This is the most powerful feature, allowing you to monitor network traffic in real-time. The application will sniff packets on your specified network interface and display a live log of their status.</p>
+                <p><strong>Important:</strong> Live packet capture requires administrative privileges to access the network interface. If you encounter a "Permission denied" error, you must run the Flask application with `sudo`.</p>
+                <p><strong>Steps:</strong></p>
+                <ol class="list-decimal list-inside pl-4 space-y-2">
+                    <li>Navigate to the Dashboard.</li>
+                    <li>In the "Live Packet Capture" section, enter the network interface name (e.g., `en0` for macOS, `eth0` for Linux, or a specific name for Windows) and the number of packets to capture.</li>
+                    <li>Click "Analyze Live Packets". You will be redirected to the Live Capture Dashboard.</li>
+                    <li>The log will automatically update with new packet information. Click "Stop Capture" to end the monitoring session.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

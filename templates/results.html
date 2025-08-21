@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Results - Network Inspector{% endblock %}
+
+{% block content %}
+<div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Document Analysis Results</h2>
+    <div class="space-y-4">
+        {% for model, prediction in results.items() %}
+        <div class="flex items-center justify-between p-4 rounded-lg {% if 'normal' in prediction|lower %}bg-green-50 border-green-400{% else %}bg-red-50 border-red-400{% endif %} border-2">
+            <span class="text-lg font-semibold text-gray-800">{{ model }} Prediction:</span>
+            <span class="text-lg font-bold {% if 'normal' in prediction|lower %}text-green-600{% else %}text-red-600{% endif %}">
+                {{ prediction }}
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mt-8 text-center">
+        <a href="{{ url_for('index') }}" class="inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Go Back
+        </a>
+    </div>
+</div>
+{% endblock %}
