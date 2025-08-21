@@ -72,21 +72,21 @@ python3 -m venv network_detector_env
 source network_detector_env/bin/activate   # On macOS/Linux
 network_detector_env\Scripts\activate      # On Windows
 
-3. Install dependencies
+3. **Install dependencies**
 
 pip install -r requirements.txt
 
-4.Run the application
+4.**Run the application**
 python app.py
 
-5.Open in browser
+5.**Open in browser**
 http://127.0.0.1:5000
 
 
 # 🖼️ Screenshots  
 
 ### 🔹 Home Page  
-![Home Page](/image1.png)  
+![Home Page](image1.png)  
 
 ### 🔹 Live Capture & Detection  
 ![Dashboard](/dashboard.png)  
